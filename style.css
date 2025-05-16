@@ -1,0 +1,118 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: 
+        linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* App container styling */
+.weather-app {
+    background: #f8fafc;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(30, 64, 175, 0.15);
+    padding: 2.5em 2em;
+    max-width: 370px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    border: 2px solid #60a5fa;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+.weather-app h1 {
+    color: #2563eb;
+    margin-bottom: 1em;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #c7d2fe;
+}
+
+#weather-form input[type="text"] {
+    padding: 0.6em;
+    border: 1.5px solid #60a5fa;
+    border-radius: 8px;
+    width: 68%;
+    margin-right: 0.5em;
+    background: #e0f2fe;
+    font-size: 1em;
+    transition: border 0.2s;
+}
+#weather-form input[type="text"]:focus {
+    border: 1.5px solid #2563eb;
+    outline: none;
+}
+
+#weather-form button {
+    padding: 0.6em 1.2em;
+    background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 2px 8px #93c5fd;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+#weather-form button:hover {
+    background: linear-gradient(90deg, #1e40af 60%, #60a5fa 100%);
+    box-shadow: 0 4px 16px #60a5fa;
+}
+
+#weather-result {
+    margin-top: 1.5em;
+    background: #f0f9ff;
+    border-radius: 10px;
+    padding: 1.2em 1em;
+    color: #1e293b;
+    box-shadow: 0 1px 8px rgba(30, 64, 175, 0.08);
+    font-size: 1.1em;
+    border-left: 4px solid #60a5fa;
+    transition: background 0.3s, color 0.3s;
+}
+#weather-result h2 {
+    color: #2563eb;
+    margin-bottom: 0.5em;
+}
+#weather-result p {
+    margin: 0.3em 0;
+}
+
+/* Cloud animation using pseudo-elements */
+body.cloudy-bg::before, body.cloudy-bg::after {
+    content: '';
+    position: fixed;
+    top: 10vh;
+    left: -300px;
+    width: 600px;
+    height: 200px;
+    background: url('https://svgshare.com/i/12dC.svg') repeat-x;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+    animation: cloud-move 60s linear infinite;
+}
+body.cloudy-bg::after {
+    top: 40vh;
+    left: -400px;
+    opacity: 0.25;
+    width: 800px;
+    height: 250px;
+    animation-duration: 90s;
+}
+
+@keyframes cloud-move {
+    0% { left: -600px; }
+    100% { left: 100vw; }
+}
